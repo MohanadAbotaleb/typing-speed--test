@@ -1,5 +1,4 @@
 const wordNum = 200;
-let wordIndex = 0;
 
 fetch('/1000-most-common-words.txt')
 .then((res) => res.text()) 
@@ -42,7 +41,7 @@ document.getElementById("game").addEventListener("keyup", (ev) => {
     const key = ev.key;
     const currentLetter = document.querySelector(".letter.current");
     const currentWord = document.querySelector(".word.current");
-    let expected = currentLetter?.innerHTML || ' ';
+    const expected = currentLetter?.innerHTML || ' ';
 
     if (key !== " " && key.length === 1) {
         if (currentLetter) {
@@ -89,6 +88,12 @@ document.getElementById("game").addEventListener("keyup", (ev) => {
             removeClass(currentWord.lastChild, 'incorrect');
             removeClass(currentWord.lastChild, 'correct');
         }
+    }
+
+    if(currentWord.getBoundingClientRect().top > 250) {
+        const words = document.getElementById('words');
+        const margin = Number.parseInt(words.style.marginTop || '0px');
+        words.style.marginTop = `${margin - 35}px`
     }
 }
 );
