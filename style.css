@@ -81,10 +81,27 @@ div.word {
 }
 
 .letter.correct {
-    color:var(--primary)
+    color:green;
 }
 
 .letter.incorrect {
     color:rgb(235, 50, 50);
 }
 
+
+
+.cursor {
+    display:inline-block;
+}
+
+.word.current > .letter.current {
+    border-left: 2px solid;
+    animation:
+    blink 1s step-end infinite;
+    border-left: 2px solid;
+}
+
+
+@keyframes blink {
+    50% {border-color: transparent}
+}
