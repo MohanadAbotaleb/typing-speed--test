@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="style.css" rel="stylesheet" />
-    <title>Koala Type</title>
+    <title>Feather Type</title>
 </head>
 <body>
     <nav></nav>
@@ -15,13 +15,15 @@
               </svg>
             Feather Type</h1>
         <div class="actions">
-            <div class="timer">30</div>
-            <div class="restart">
-                <button>New Game</button>
+            <div id="timer">30</div>
+            <div class="buttons">
+                <!-- <button id="login">Login</button>
+                <button id="graph">Graph</button> -->
+                <button id="restart">New Game</button>
             </div>
         </div>
 
-        <div class="results"> </div>
+        <div id="results"> </div>
         <div id="game" tabindex="0">
             <div id="cursor">
             <div id="words"></div>
@@ -32,8 +34,9 @@
             
 
         </div>
-    
+        <canvas id="wpmChart">style='display: none;'</canvas>
     </main>
+<script src="/node_modules/chart.js/dist/chart.umd.js"></script>
 <script src="script.js"></script>
 </body>
 </html>

@@ -89,10 +89,10 @@ div.word {
 }
 
 
-
+/* 
 .cursor {
     display:inline-block;
-}
+} */
 
 .word.current > .letter.current {
     border-left: 2px solid;
@@ -104,4 +104,8 @@ div.word {
 
 @keyframes blink {
     50% {border-color: transparent}
+}
+
+#game.over {
+    filter:blur(7px);
 }
