@@ -22,13 +22,13 @@ function calculateCorrectWords() {
         if (word === currentWord) break;
         
         const letters = word.querySelectorAll('.letter');
-        totalChars += letters.length + 1; // +1 for space
+        totalChars += letters.length + 1;
         
         const allCorrect = Array.from(letters).every(letter => letter.classList.contains('correct'));
         
         if (allCorrect) {
             correctCount++;
-            correctChars += letters.length + 1; // +1 for space
+            correctChars += letters.length + 1;
         }
     }
 
@@ -37,8 +37,8 @@ function calculateCorrectWords() {
 
 function calculateWPM() {
     const correctWords = calculateCorrectWords().correctCount;
-    const timeInMinutes = time / 60; // Convert seconds to minutes
-    const wpm = Math.round((correctWords / timeInMinutes) * 10) / 10; // Round to 1 decimal place
+    const timeInMinutes = time / 60; 
+    const wpm = Math.round((correctWords / timeInMinutes) * 10) / 10; 
     return wpm;
 }
 
@@ -97,7 +97,7 @@ const startTimer = () => {
         if (remaining <= 0) {
             clearInterval(countdown);
             setClass(document.querySelector('#game'), 'over');
-            displayResult(); // Call displayResult when time is up
+            displayResult(); 
         }
     }, 100);
 };
@@ -115,29 +115,29 @@ fetch('/1000-most-common-words.txt')
 
 
 function newGame() {
-    // Reset timer
+
     clearInterval(countdown);
     countdownStarted = false;
     timerDiv.textContent = time;
 
-    // Reset game state
+
     totalKeyPresses = 0;
     correctKeyPresses = 0;
 
-    // Clear and reset the game area
+
     const gameArea = document.getElementById("game");
     removeClass(gameArea, 'over');
     
-    // Clear results
+
     document.getElementById("results").innerHTML = '';
 
     displayWords(wordList);
 
-    // Reset focus to game area
+
     gameArea.focus();
 }
 
-// Add event listener to the restart button
+
 document.getElementById("restart").addEventListener("click", newGame);
 
 
@@ -183,6 +183,7 @@ document.getElementById("game").addEventListener("keyup", (ev) => {
         setClass(currentWord.nextSibling.firstChild, 'current');
     }
     else if (key === 'Backspace') {
+
         if (currentLetter && (currentLetter === currentWord.firstChild) && (currentWord !== document.querySelector('.word'))) {
             removeClass(currentWord, "current");
             setClass(currentWord.previousSibling, 'current');

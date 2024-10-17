@@ -105,6 +105,20 @@ div.word {
 @keyframes blink {
     50% {border-color: transparent}
 }
+@media (max-width: 750px) {
+    #game {
+        width: 90vw;
+        margin: auto;
+
+    }
+}
+@media (min-width: 1000px) {
+    #game {
+        width: 80vw;
+        margin: auto;
+        
+    }
+}
 
 #game.over {
     filter:blur(7px);
