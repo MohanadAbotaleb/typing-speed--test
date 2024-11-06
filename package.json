@@ -1,0 +1,17 @@
+{
+  "name": "typing-speed",
+  "version": "1.0.0",
+  "description": "typing speed test",
+  "main": "./src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chart.js": "^4.4.4",
+    "firebase": "^10.14.1"
+  },
+  "type": "module",
+  "devDependencies": {}
+}
