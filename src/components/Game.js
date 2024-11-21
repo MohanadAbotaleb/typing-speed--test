@@ -25,7 +25,6 @@ class Game {
     );
     this.#scoreCalc = new ScoreCalc();
 
-    this.initialize();
   }
 
   async initialize() {
@@ -68,11 +67,17 @@ class Game {
     const { currentWord, currentLetter, expectedChar } = state;
 
     if (!currentWord || !currentLetter) return;
-
+    if (!this.#timer.isRunning()) {
+      this.startGame();
+  }
     switch (key) {
-      case " ":
-        this.handleSpaceKey(currentWord, currentLetter);
+      case " ": {
+        const isAtWordEnd = !currentLetter.nextElementSibling;
+        if(isAtWordEnd) {
+          this.handleSpaceKey(currentWord, currentLetter);
+        }
         break;
+      }
       case "Backspace":
         this.handleBackspace(currentWord, currentLetter);
         break;

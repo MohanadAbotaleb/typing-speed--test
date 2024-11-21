@@ -2,7 +2,7 @@ class Result {
     #container;
 
     constructor(containerId) {
-        this.#container = document.getElementById;
+        this.#container = document.getElementById(containerId);
         if (!this.#container) {
             throw new Error('Result container does not exist');
         }

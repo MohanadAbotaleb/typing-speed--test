@@ -22,7 +22,8 @@ class Timer {
         const endTime = Date.now() + this.#timeRemaining * 1000;
         this.#interval = setInterval(() => {
             const remaining = Math.round((endTime - Date.now()) / 1000);
-
+            this.#timeRemaining = remaining;
+            
             if (remaining <= 0) {
                 this.stop();
                 this.#onTimeUp();
@@ -46,6 +47,9 @@ class Timer {
 
     getTimeRemaining() {
         return this.#timeRemaining;
+    }
+    isRunning() {
+        return this.#interval !== null;
     }
 }
 

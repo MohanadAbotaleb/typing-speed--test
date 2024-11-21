@@ -26,7 +26,7 @@ class Display {
             }
         }
         removeClass(currentWord, 'current');
-        removeClass(currentLetter, 'current')
+        if(currentLetter) removeClass(currentLetter, 'current');
         if(nextWord) {
             addClass(nextWord, 'current');
             const firstLetter = nextWord.querySelector('.letter');
@@ -39,8 +39,13 @@ class Display {
         removeClass(letter, 'current');
 
         const nextLetter = letter.nextElementSibling;
-        if (nextLetter) addClass(nextLetter, 'current');
-    }
+        if (nextLetter) {
+            addClass(nextLetter, 'current'); 
+        } else {
+            document.querySelector('.letter.current').id = 'last';
+            return;
+        }
+    } 
     updateIncorrectLetters(word) {
         // biome-ignore lint/complexity/noForEach: <explanation>
         word.querySelectorAll('.letter:not(.correct)').forEach(letter => {

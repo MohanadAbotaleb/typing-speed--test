@@ -101,6 +101,14 @@ div.word {
     border-left: 2px solid;
 }
 
+.word.current > .letter#last {
+    border-right: 2px solid;
+    animation:
+    blink 1s step-end infinite;
+    border-right: 2px solid;
+}
+
+
 
 @keyframes blink {
     50% {border-color: transparent}
